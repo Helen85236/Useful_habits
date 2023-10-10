@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-k4gj3vxccia_$9s4=(vf^ky!l&7(3a+fzv24@lfa(@8$vt)5!h'
+SECRET_KEY = 'django-insecure-rmt0xs2q&6czf#g+v08r!h0xuwt3pe1e_1' \
+             'ftlvitf&s8$18jqp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -112,16 +113,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'NumericPasswordValidator',
     },
 ]
 
@@ -165,7 +170,7 @@ SIMPLE_JWT = {
 # Broker settings for Celery
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
 CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'
-CELERY_IMPORTS = ("config.tasks", )
+CELERY_IMPORTS = ("config.tasks",)
 CELERY_TIMEZONE = 'Europe/Moscow'
 
 # Telegram API settings
@@ -195,4 +200,3 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = False
-
