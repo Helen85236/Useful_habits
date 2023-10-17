@@ -3,6 +3,7 @@ from rest_framework import viewsets, generics
 from habit_tracker.models import Habit
 from habit_tracker.paginators import DefaultPaginator
 from habit_tracker.permissions import IsOwner
+from rest_framework.permissions import IsAuthenticated
 from habit_tracker.serializers import HabitSerializer
 
 
@@ -12,6 +13,7 @@ class HabitViewSet(viewsets.ModelViewSet):
     """
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
+
 
     def perform_create(self, serializer):
         """Save owner field during creation"""
@@ -35,19 +37,19 @@ class HabitViewSet(viewsets.ModelViewSet):
         # Define permissions based on view action
         if self.action == 'retrieve':
             # Only Owner can view this habit
-            permission_classes = [IsOwner]
+            permission_classes = [IsAuthenticated, IsOwner]
         elif self.action == 'update':
             # Only Owner can update this habit
-            permission_classes = [IsOwner]
+            permission_classes = [IsAuthenticated, IsOwner]
         elif self.action == 'partial_update':
             # Only Owner can partially update this habit
-            permission_classes = [IsOwner]
+            permission_classes = [IsAuthenticated, IsOwner]
         elif self.action == 'destroy':
             # Only Owner can delete this habit
-            permission_classes = [IsOwner]
+            permission_classes = [IsAuthenticated, IsOwner]
         else:
             # All users
-            permission_classes = []
+            permission_classes = [IsAuthenticated]
 
         return [permission() for permission in permission_classes]
 
