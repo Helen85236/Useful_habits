@@ -9,7 +9,7 @@ def get_bot_url():
     # Identify API method
     method = '/getMe'
     # Compose URL for request
-    url = settings.TELEGRAM_URL + settings.TELEGRAM_API_KEY + method
+    url = 'https://api.telegram.org/bot' + settings.TELEGRAM_API_KEY + method
     # Get bot's information
     response = requests.get(
         url
