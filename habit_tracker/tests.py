@@ -74,7 +74,7 @@ class HabitTest(APITestCase):
         self.client.force_authenticate(self.user)
         # Get first habit
         response = self.client.get(
-            f'/habits/{self.habit.pk}/
+            f'/habits/{self.habit.pk}/'
         )
         # Check status
         self.assertEqual(
