@@ -33,3 +33,14 @@ Run Django server:
 ```bash
 python3 manage.py runserver
 ```
+```
+## Docker
+- для начала создайте отдельный файл `.env.docker` и пропишите там свои настройки. Смотрите шаблон `.env.sample`:
+
+### Сборка образа и запуск в фоне после успешной сборки
+```
+docker-compose up -d —build
+```
+- для остановки
+```
+docker-compose down
